@@ -23,8 +23,15 @@ router.post(
           });
       }
 
-      console.log(user)
+      if (!user.confirmed) {
+        return res
+          .status(400)
+          .json({
+            errors: [{ msg: "please register your email before logging in" }]
+          });
+      }
 
+      
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
