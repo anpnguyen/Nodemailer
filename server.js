@@ -5,7 +5,7 @@ const cors = require("cors");
 const mongoose = require('mongoose')
 const RegisterUser = require('./routes/api/RegisterUser')
 const AuthUser = require('./routes/api/AuthUser')
-const nodemailer = require('nodemailer')
+
 
 
 app.use(express.json({ extended: false }));
@@ -30,13 +30,7 @@ connectDB();
 
 
 
-const transporter = nodemailer.createTransport({
-  service: "Gmail",
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS
-  }
-});
+
 
 
 app.get('/', (req,res) => res.send('api running'))
