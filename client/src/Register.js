@@ -42,6 +42,7 @@ function Register(props) {
         />
         <button>Submit</button>
       </form>
+
     </div>
   );
 }
